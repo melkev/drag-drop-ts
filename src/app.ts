@@ -56,6 +56,40 @@ function validate(validatableInput: Validatable) {
   return isValid
 }
 
+// projectList CLASS
+
+class ProjectList {
+  templateElement: HTMLTemplateElement;
+  hostElement: HTMLDivElement;
+  element: HTMLElement;
+
+  constructor(private type: 'active' | 'finished'){
+    this.templateElement = document.getElementById('project-list')! as HTMLTemplateElement;
+    this.hostElement = document.getElementById('app')! as HTMLDivElement;
+
+    // The importNode() method imports a node from another document.The imported node can be of all node types.
+    const importedNode = document.importNode(this.templateElement.content, true);
+    // The firstElementChild property returns the first child element of the specified element.
+    this.element = importedNode.firstElementChild as HTMLElement;
+    this.element.id = `${this.type}-projects`;
+
+    this.attach();
+    this.renderContent();
+  }
+
+  private renderContent() {
+    const listId = `${this.type}-projects-list`
+    this.element.querySelector('ul')!.id = listId
+    this.element.querySelector('h2')!.textContent = this.type.toUpperCase() + 'PROJECTS'
+
+
+  }
+
+  private attach() {
+     // The insertAdjacentHTML() method inserts a text as HTML, into a specified position.
+    this.hostElement.insertAdjacentElement('beforeend', this.element);
+  }
+}
 
 // project input claass
 class ProjectInput {
@@ -144,3 +178,5 @@ class ProjectInput {
 }
 
 const prjInput = new ProjectInput();
+const activePrjList = new ProjectList('active');
+const finishedPrjList = new ProjectList('finished');
