@@ -1,8 +1,9 @@
+import { Component } from "./base-components";
+import { Validatable, validate } from "../util/validation";
+import { autobind } from "../decorators/autobind";
+import { projectState } from "../state/project-stat";
 
-import { Component} from './base-components';
-import { Validatable , validate } from '../util/validation'
-import { autobind } from '../decorators/autobind';
-import { projectState } from '../state/project-stat';
+
 
 // ProjectInput Class
 export class ProjectInput extends Component<HTMLDivElement, HTMLFormElement> {
@@ -28,7 +29,7 @@ export class ProjectInput extends Component<HTMLDivElement, HTMLFormElement> {
     this.element.addEventListener('submit', this.submitHandler);
   }
 
-  renderContent() {}
+  renderContent() { }
 
   private gatherUserInput(): [string, string, number] | void {
     const enteredTitle = this.titleInputElement.value;
