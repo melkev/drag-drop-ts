@@ -1,4 +1,8 @@
 /// <reference path="base-components.ts" /> 
+/// <reference path="../decorators/autobind.ts" /> 
+/// <reference path="../state/project-stat.ts" />
+/// <reference path="../models/drag-drop.ts" />
+/// <reference path="../models/project.ts" />
 
 namespace App {
 

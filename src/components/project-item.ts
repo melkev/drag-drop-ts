@@ -1,9 +1,10 @@
 /// <reference path="base-components.ts" /> 
-
+/// <reference path="../decorators/autobind.ts" /> 
+/// <reference path="../models/project.ts" />
+/// <reference path="../models/drag-drop.ts" />
 
 namespace App {
 
-  
 //  projectItem Class
 
 export class ProjectItem extends Component<HTMLUListElement, HTMLLIElement> 
